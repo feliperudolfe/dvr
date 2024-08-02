@@ -1,0 +1,29 @@
+databaseChangeLog:
+
+#-  include:
+#      file: user/user.yml
+#      relativeToChangelogFile: true
+#
+#-  include:
+#      file: project/project.yml
+#      relativeToChangelogFile: true
+#
+#-  include:
+#      file: configuration/configuration.yml
+#      relativeToChangelogFile: true
+#
+#-  include:
+#      file: collaborator/collaborator.yml
+#      relativeToChangelogFile: true
+#
+#-  include:
+#      file: suite/suite.yml
+#      relativeToChangelogFile: true
+#
+#-  include:
+#      file: script/script.yml
+#      relativeToChangelogFile: true
+#
+#-  include:
+#      file: execution/execution.yml
+#      relativeToChangelogFile: true

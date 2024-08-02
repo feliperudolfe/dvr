@@ -1,0 +1,49 @@
+
+spring:
+
+   application:
+      name: autorizador
+      
+   jpa:
+      open-in-view: false
+      show-sql: true
+      generate-ddl: false
+      hibernate:
+         ddl-auto: none
+      properties:
+         hibernate:
+            '[format_sql]': true
+            jdbc:
+               '[time_zone]': UTC
+
+   datasource:
+      url: jdbc:mysql://localhost:3306/miniautorizador?useTimezone=true&serverTimezone=America/Sao_Paulo
+      username: root
+      driverClassName: com.mysql.jdbc.Driver
+      testWhileIdle: true
+      validationQuery: SELECT 1
+
+   liquibase:
+      change-log: classpath:db/database-change-log.yml
+      enabled: true
+      contexts: dev
+
+management:
+   endpoints:
+      web:
+         base-path: /
+         exposure:
+            include: health,info
+         cors:
+            allowed-origins: '*'
+            allowed-headers: '*'
+            allowed-methods: OPTIONS, GET, POST
+
+springdoc:
+   api-docs:
+      path: /api-docs
+
+logging:
+   pattern:
+      console: '%d{yyyy-MM-dd HH:mm:ss} [%X{traceId:-},%X{spanId:-}] ${LOG_LEVEL_PATTERN:-%5p} %m%n'
+      
