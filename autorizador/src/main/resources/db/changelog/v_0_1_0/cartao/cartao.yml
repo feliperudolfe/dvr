@@ -1,0 +1,10 @@
+databaseChangeLog:
+
+-  include:
+      file: create-table.yml
+      relativeToChangelogFile: true
+
+-  include:
+      file: insert-table.yml
+      context: test
+      relativeToChangelogFile: true

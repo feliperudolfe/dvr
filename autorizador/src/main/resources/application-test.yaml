@@ -1,0 +1,13 @@
+
+spring:
+
+   jpa:
+      show-sql: false
+
+   datasource:
+      url: jdbc:mysql://${DATASOURCE_HOST}:${DATASOURCE_PORT}/${DATASOURCE_SCHEMA}?useTimezone=true&serverTimezone=America/Sao_Paulo&useSSL=false
+      username: ${DATASOURCE_USERNAME}
+      password: ${DATASOURCE_PASSWORD}
+
+   liquibase:
+      contexts: test

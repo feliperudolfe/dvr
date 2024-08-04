@@ -1,0 +1,38 @@
+databaseChangeLog:
+
+-  changeSet:
+      id: insert-table-cartoes-dml
+      author: felipe.rudolfe
+      changes:
+
+      -  insert:
+            tableName: cartoes
+            columns:
+
+            -  column:
+                  name: numero_cartao
+                  value: 6549873025634001
+
+            -  column:
+                  name: senha
+                  value: 1234
+
+            -  column:
+                  name: limite
+                  value: 500
+
+      -  insert:
+            tableName: cartoes
+            columns:
+
+            -  column:
+                  name: numero_cartao
+                  value: 6549873025634101
+
+            -  column:
+                  name: senha
+                  value: 4321
+
+            -  column:
+                  name: limite
+                  value: 500

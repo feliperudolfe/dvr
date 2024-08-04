@@ -28,7 +28,7 @@ import lombok.Setter;
 @MappedSuperclass
 public abstract class Aggregate<I> extends EntityDomain<I> {
 	
-	private static final String UNKNOWN_USER  = "unknown";
+	private static final String UNKNOWN_USER  = "Unknown";
 
 	@Transient
 	private transient List<Object> domainEvents = new ArrayList<>(); // NOSONAR

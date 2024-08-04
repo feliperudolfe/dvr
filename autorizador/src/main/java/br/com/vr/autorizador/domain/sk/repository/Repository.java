@@ -15,4 +15,6 @@ public interface Repository<A extends Aggregate<I>, I> extends DomainObject {
 
 	Optional<A> findById(I id);
 
+	boolean existsById(I id);
+
 }
