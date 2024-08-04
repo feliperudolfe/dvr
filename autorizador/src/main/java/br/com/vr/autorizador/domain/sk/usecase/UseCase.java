@@ -16,8 +16,6 @@ import jakarta.validation.Validator;
 
 public interface UseCase<S, E> extends DomainObject {
 	
-	String FILE_PROPERTIES = "locale/validation";
-
 	S execute(E command);
 
 	default void validate(E command) {
@@ -64,7 +62,7 @@ public interface UseCase<S, E> extends DomainObject {
 	public class ContextualMessageInterpolator extends ResourceBundleMessageInterpolator {
 
 		private ContextualMessageInterpolator() {
-			super(new PlatformResourceBundleLocator(FILE_PROPERTIES));
+			super(new PlatformResourceBundleLocator("locale/validation"));
 		}
 
 		@Override

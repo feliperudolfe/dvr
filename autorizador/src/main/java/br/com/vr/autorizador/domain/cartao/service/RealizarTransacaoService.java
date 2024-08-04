@@ -1,27 +1,32 @@
 package br.com.vr.autorizador.domain.cartao.service;
 
-import java.math.BigDecimal;
+import java.util.UUID;
 
 import org.springframework.transaction.annotation.Transactional;
 
-import br.com.vr.autorizador.domain.cartao.ObterSaldoCartaoUseCase;
+import br.com.vr.autorizador.domain.cartao.RealizarTransacaoUseCase;
 import br.com.vr.autorizador.domain.cartao.exception.CartaoNaoExisteException;
-import br.com.vr.autorizador.domain.cartao.model.Cartao;
 import br.com.vr.autorizador.domain.cartao.repository.CartaoRepository;
 import lombok.RequiredArgsConstructor;
 
-@Transactional(readOnly = true)
+@Transactional
 @RequiredArgsConstructor
-public class ObterSaldoCartaoService implements ObterSaldoCartaoUseCase {
-	
+public class RealizarTransacaoService implements RealizarTransacaoUseCase {
+
 	private final CartaoRepository repository;
 
 	@Override
-	public BigDecimal execute(ObterSaldoCartaoCommand command) {
+	public UUID execute(RealizarTransacaoCommand command) {
+		
 		validate(command);
-		return repository.findById(command.getNumeroCartao())
-				.map(Cartao::obterSaldo)
+		
+		var cartao = repository.findById(command.getNumeroCartao())
 				.orElseThrow(() -> new CartaoNaoExisteException(command.getNumeroCartao()));
+		
+		var id = cartao.registrarTransacao(command.getSenhaCartao(), command.getValor());
+		repository.save(cartao);
+		
+		return id;
 	}
 
 }
