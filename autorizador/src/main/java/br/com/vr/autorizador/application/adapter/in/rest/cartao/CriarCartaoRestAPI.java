@@ -23,7 +23,7 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("cartoes")
 public class CriarCartaoRestAPI {
 
-	private final CriarCartaoUseCase service; 
+	private final CriarCartaoUseCase useCase; 
 
 	@Operation(summary = "Criar novo cartão")
 	@ApiResponses(value = {
@@ -36,7 +36,7 @@ public class CriarCartaoRestAPI {
 	})
 	@PostMapping(consumes = { MediaType.APPLICATION_JSON_VALUE }, produces = { MediaType.APPLICATION_JSON_VALUE })
 	public ResponseEntity<CriarCartaoCommand> handle(@RequestBody CriarCartaoCommand command) {
-		var resposta = service.execute(command);
+		var resposta = useCase.execute(command);
 		return new ResponseEntity<>(resposta, HttpStatus.CREATED);
 	}
 
