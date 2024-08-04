@@ -21,9 +21,9 @@ import lombok.RequiredArgsConstructor;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("cartoes")
-public class CriarCartaoEndpoint {
+public class CriarCartaoRestAPI {
 
-	private final CriarCartaoUseCase handler; 
+	private final CriarCartaoUseCase service; 
 
 	@Operation(summary = "Criar novo cartão")
 	@ApiResponses(value = {
@@ -36,7 +36,7 @@ public class CriarCartaoEndpoint {
 	})
 	@PostMapping(consumes = { MediaType.APPLICATION_JSON_VALUE }, produces = { MediaType.APPLICATION_JSON_VALUE })
 	public ResponseEntity<CriarCartaoCommand> handle(@RequestBody CriarCartaoCommand command) {
-		var resposta = handler.execute(command);
+		var resposta = service.execute(command);
 		return new ResponseEntity<>(resposta, HttpStatus.CREATED);
 	}
 

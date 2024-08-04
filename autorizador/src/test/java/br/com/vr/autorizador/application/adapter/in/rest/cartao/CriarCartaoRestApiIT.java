@@ -20,7 +20,7 @@ import br.com.vr.autorizador.domain.cartao.CriarCartaoUseCase.CriarCartaoCommand
 import br.com.vr.autorizador.util.integration.ControllerBaseIT;
 
 @DisplayName("IT: Cartão -> Criar cartão")
-class CriarCartaoEndpointIT extends ControllerBaseIT {
+class CriarCartaoRestApiIT extends ControllerBaseIT {
 	
 	private static final String PATH = "/cartoes";
 	
