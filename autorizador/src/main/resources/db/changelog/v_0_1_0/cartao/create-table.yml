@@ -1,0 +1,62 @@
+databaseChangeLog:
+
+-  changeSet:
+      id: create-table-cartoes-ddl
+      author: felipe.rudolfe
+      changes:
+
+      -  createTable:
+            tableName: cartoes
+            columns:
+
+            -  column:
+                  name: numero_cartao
+                  type: VARCHAR(16)
+                  constraints:
+                     primaryKey: true
+                     nullable: false
+
+            -  column:
+                  name: senha
+                  type: VARCHAR(20)
+                  constraints:
+                     nullable: false
+
+            -  column:
+                  name: limite
+                  type: NUMBER(18,2)
+                  constraints:
+                     nullable: false
+
+            -  column:
+                  name: created_by
+                  type: varchar(120)
+                  constraints:
+                     nullable: true
+
+            -  column:
+                  name: created_at
+                  type: timestamptz
+                  defaultValueDate: now()
+                  constraints:
+                     nullable: false
+
+            -  column:
+                  name: updated_by
+                  type: varchar(120)
+                  constraints:
+                     nullable: true
+
+            -  column:
+                  name: updated_at
+                  type: timestamptz
+                  defaultValueDate: now()
+                  constraints:
+                     nullable: false
+
+            -  column:
+                  name: version
+                  type: number
+                  defaultValueNumeric: 0
+                  constraints:
+                     nullable: false

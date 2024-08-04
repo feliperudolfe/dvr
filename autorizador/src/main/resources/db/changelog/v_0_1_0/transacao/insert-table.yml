@@ -1,0 +1,38 @@
+databaseChangeLog:
+
+-  changeSet:
+      id: insert-table-transacoes-dml
+      author: felipe.rudolfe
+      changes:
+
+      -  insert:
+            tableName: transacoes
+            columns:
+
+            -  column:
+                  name: transacao_id
+                  value: 008203d4-33e2-4eb2-969c-3c8df9a382f1
+
+            -  column:
+                  name: numero_cartao
+                  value: 6549873025634001
+
+            -  column:
+                  name: valor
+                  value: 490.00
+
+      -  insert:
+            tableName: transacoes
+            columns:
+
+            -  column:
+                  name: transacao_id
+                  value: 94b4944d-8b0d-4845-8a48-b66f877d4c87
+
+            -  column:
+                  name: numero_cartao
+                  value: 6549873025634111
+
+            -  column:
+                  name: valor
+                  value: 499.00
