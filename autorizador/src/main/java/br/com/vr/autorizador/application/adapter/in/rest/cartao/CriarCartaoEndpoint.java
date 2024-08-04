@@ -26,14 +26,14 @@ public class CriarCartaoEndpoint {
 	private final CriarCartaoUseCase handler; 
 
 	@Operation(summary = "Criar novo cartão")
-    @ApiResponses(value = {
+	@ApiResponses(value = {
 		@ApiResponse(
 			responseCode = "201", 
 			description  = "Created"),
 		@ApiResponse(
 			responseCode = "422",
 			description = "Unprocessable Content")
-    })
+	})
 	@PostMapping(consumes = { MediaType.APPLICATION_JSON_VALUE }, produces = { MediaType.APPLICATION_JSON_VALUE })
 	public ResponseEntity<CriarCartaoCommand> handle(@RequestBody CriarCartaoCommand command) {
 		var resposta = handler.execute(command);
