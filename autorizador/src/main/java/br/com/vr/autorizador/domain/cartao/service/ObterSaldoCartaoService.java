@@ -18,6 +18,7 @@ public class ObterSaldoCartaoService implements ObterSaldoCartaoUseCase {
 
 	@Override
 	public BigDecimal execute(ObterSaldoCartaoCommand command) {
+		validate(command);
 		return repository.findById(command.getNumeroCartao())
 				.map(Cartao::limite)
 				.orElseThrow(() -> new CartaoNaoExisteException(command.getNumeroCartao()));
