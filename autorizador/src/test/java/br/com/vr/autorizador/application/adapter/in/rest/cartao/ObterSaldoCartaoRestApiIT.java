@@ -23,7 +23,7 @@ class ObterSaldoCartaoRestApiIT extends ControllerBaseIT {
 		
 		mock.perform(get(PATH, numeroCartao))
 			.andExpect(status().isOk())
-			.andExpect(jsonPath("$", is(500.00)));
+			.andExpect(jsonPath("$", is(10.00)));
 	}
 
 	@Test

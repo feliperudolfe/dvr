@@ -36,3 +36,19 @@ databaseChangeLog:
             -  column:
                   name: limite
                   value: 500
+
+      -  insert:
+            tableName: cartoes
+            columns:
+
+            -  column:
+                  name: numero_cartao
+                  value: 6549873025634111
+
+            -  column:
+                  name: senha
+                  value: 1234
+
+            -  column:
+                  name: limite
+                  value: 500

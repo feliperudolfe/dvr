@@ -1,0 +1,38 @@
+databaseChangeLog:
+
+-  changeSet:
+      id: create-table-transacoes-ddl
+      author: felipe.rudolfe
+      changes:
+
+      -  createTable:
+            tableName: transacoes
+            columns:
+
+            -  column:
+                  name: transacao_id
+                  type: UUID
+                  constraints:
+                     primaryKey: true
+                     nullable: false
+
+            -  column:
+                  name: numero_cartao
+                  type: VARCHAR(16)
+                  constraints:
+                     nullable: false
+                     foreignKeyName: FK_TRANSACOES_NUMERO_CARTAO
+                     references: cartoes(numero_cartao)
+
+            -  column:
+                  name: valor
+                  type: NUMBER(18,2)
+                  constraints:
+                     nullable: false
+
+            -  column:
+                  name: datahora
+                  type: TIMESTAMPTZ
+                  defaultValueDate: now()
+                  constraints:
+                     nullable: false

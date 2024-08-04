@@ -4,3 +4,7 @@ databaseChangeLog:
       file: cartao/cartao.yml
       relativeToChangelogFile: true
 
+-  include:
+      file: transacao/transacao.yml
+      relativeToChangelogFile: true
+
