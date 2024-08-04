@@ -16,14 +16,14 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 
-@Tag(name = "Cartão enpoint")
+@Tag(name = "Cartão")
 
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("cartoes")
-public class CriarCartaoEndpoint {
+public class CriarCartaoRestAPI {
 
-	private final CriarCartaoUseCase handler; 
+	private final CriarCartaoUseCase useCase; 
 
 	@Operation(summary = "Criar novo cartão")
 	@ApiResponses(value = {
@@ -36,7 +36,7 @@ public class CriarCartaoEndpoint {
 	})
 	@PostMapping(consumes = { MediaType.APPLICATION_JSON_VALUE }, produces = { MediaType.APPLICATION_JSON_VALUE })
 	public ResponseEntity<CriarCartaoCommand> handle(@RequestBody CriarCartaoCommand command) {
-		var resposta = handler.execute(command);
+		var resposta = useCase.execute(command);
 		return new ResponseEntity<>(resposta, HttpStatus.CREATED);
 	}
 
